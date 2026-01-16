@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Hey love…</h1>
+    <p>I have a very important question for you.</p>
+
+    <button onclick="start()">Continue</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
