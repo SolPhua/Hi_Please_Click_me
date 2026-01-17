@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
   width: 100%;
@@ -24,9 +22,7 @@ html, body {
   z-index: 5;
 }
 
-.hidden {
-  display: none;
-}
+.hidden { display: none; }
 
 /* Buttons */
 .buttons button {
@@ -39,18 +35,10 @@ html, body {
   transition: transform 0.2s;
 }
 
-#yesBtn {
-  background: #ff5fa2;
-  color: white;
-}
+#yesBtn { background: #ff5fa2; color: white; }
+#noBtn { background: #ccc; }
 
-#noBtn {
-  background: #ccc;
-}
-
-.buttons button:hover {
-  transform: scale(1.1);
-}
+.buttons button:hover { transform: scale(1.1); }
 
 /* Panda GIFs */
 .panda {
@@ -96,7 +84,6 @@ html, body {
   max-height: 150px;
   object-fit: cover;
   border-radius: 15px;
-  /* Optional floating animation */
   animation: floatSide 3s infinite alternate;
 }
 
@@ -106,19 +93,6 @@ html, body {
 }
 
 /* Countdown & QR */
-#countdown {
-  font-size: 18px;
-  margin: 15px 0;
-  font-weight: bold;
-}
-
-.qr-text {
-  margin-top: 20px;
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-#qrCode {
-  margin-top: 10px;
-  width: 150px;
-}
+#countdown { font-size: 18px; margin: 15px 0; font-weight: bold; }
+.qr-text { margin-top: 20px; font-size: 14px; opacity: 0.8; }
+#qrCode { margin-top: 10px; width: 150px; }
