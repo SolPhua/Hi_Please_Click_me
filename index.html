@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <!-- Floating hearts container -->
+  <!-- Floating hearts -->
   <div id="hearts"></div>
 
   <!-- Page 1: Question -->
@@ -21,29 +21,35 @@
   </div>
 
   <!-- Page 2: Result -->
- <div class="result-container">
-  <!-- Left GIF (you) -->
-  <img src="you.gif" class="side-gif left-gif">
+  <div class="card hidden" id="resultCard">
+    <div class="result-container">
+      <!-- Left GIF (you) -->
+      <img src="you.gif" class="side-gif left-gif">
 
-  <!-- Main card content -->
-  <div class="main-result">
-    <h1>YIPEEE 🎉🐼</h1>
-    <p>You have my heart 💖</p>
+      <!-- Main result content -->
+      <div class="main-result">
+        <h1>YIPEEE 🎉🐼</h1>
+        <p>You have my heart 💖</p>
 
-    <div id="countdown"></div>
+        <!-- Countdown -->
+        <div id="countdown"></div>
 
-    <p class="qr-text">Scan to keep this forever 📱</p>
-    <img id="qrCode" alt="QR Code">
+        <!-- QR code -->
+        <p class="qr-text">Scan to keep this forever 📱</p>
+        <img id="qrCode" alt="QR Code">
 
-    <!-- Celebration GIF -->
-    <img src="Kiss_cat.gif" class="panda">
+        <!-- Celebration GIF -->
+        <img src="Kiss_cat.gif" class="panda">
+      </div>
+
+      <!-- Right GIF (her) -->
+      <img src="her.gif" class="side-gif right-gif">
+    </div>
   </div>
 
-  <!-- Right GIF (her) -->
-  <img src="her.gif" class="side-gif right-gif">
-</div>
+  <!-- Music -->
+  <audio id="bgMusic" src="Blue - Yungkai.mp3" loop></audio>
 
   <script src="script.js"></script>
-  <audio id="bgMusic" src="Blue - Yungkai.mp3" loop></audio>
 </body>
 </html>
