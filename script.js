@@ -34,22 +34,22 @@ noBtn.addEventListener("mouseover", () => {
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
-  heart.innerHTML = "💖";
+  heart.textContent = "💖";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  heart.style.fontSize = Math.random() * 12 + 18 + "px";
   document.body.appendChild(heart);
 
   setTimeout(() => heart.remove(), 6000);
-}, 300);
+}, 400);
 
 // CONFETTI
 function launchConfetti() {
-  for (let i = 0; i < 80; i++) {
+  for (let i = 0; i < 60; i++) {
     const confetti = document.createElement("div");
     confetti.className = "heart";
-    confetti.innerHTML = "🎉";
+    confetti.textContent = "🎉";
     confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.fontSize = "24px";
+    confetti.style.fontSize = Math.random() * 10 + 20 + "px";
     confetti.style.animationDuration = "3s";
     document.body.appendChild(confetti);
 
