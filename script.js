@@ -1,85 +1,88 @@
-// ---------- FLOATING HEARTS ----------
-const heartsContainer = document.querySelector(".hearts");
-
-setInterval(() => {
-  const heart = document.createElement("span");
-  heart.textContent = "💗";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
-  heartsContainer.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 7000);
-}, 400);
-
-// ---------- COUNTDOWN ----------
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const mainCard = document.getElementById("mainCard");
+const resultCard = document.getElementById("resultCard");
 const countdownEl = document.getElementById("countdown");
-const valentines = new Date("February 14, 2026 19:00:00").getTime();
+const qrCodeImg = document.getElementById("qrCode");
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = valentines - now;
+// YES BUTTON
+yesBtn.addEventListener("click", () => {
+  mainCard.classList.add("hidden");
+  resultCard.classList.remove("hidden");
 
-  if (diff <= 0) {
-    countdownEl.textContent = "It's today 🐼💖";
-    return;
+  // Mobile vibration
+  if (navigator.vibrate) {
+    navigator.vibrate([200, 100, 200]);
   }
 
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const m = Math.floor((diff / (1000 * 60)) % 60);
-
-  countdownEl.textContent = `${d} days ${h} hrs ${m} mins to us 💕`;
-}, 1000);
-
-// ---------- MAIN LOGIC ----------
-const card = document.getElementById("card");
-const continueBtn = document.getElementById("continueBtn");
-
-continueBtn.addEventListener("click", () => {
-  card.innerHTML = `
-    <h1>Will you be my Valentine? 🐼💘</h1>
-    <button id="yesBtn">YES 💕</button>
-    <button id="noBtn">NO 😐</button>
-  `;
-
-  document.getElementById("yesBtn").addEventListener("click", yesClicked);
-
-  const noBtn = document.getElementById("noBtn");
-  noBtn.addEventListener("mouseover", () => {
-    noBtn.style.position = "absolute";
-    noBtn.style.left = Math.random() * 70 + "vw";
-    noBtn.style.top = Math.random() * 70 + "vh";
-  });
+  launchConfetti();
+  startCountdown();
+  generateQR();
 });
 
-// ---------- YES + CONFETTI ----------
-function yesClicked() {
-  launchConfetti();
-  card.innerHTML = `
-    <h1>YAYYYY 🐼🎉</h1>
-    <p>14 Feb, 7pm.<br>Your panda is yours 💖</p>
-  `;
-}
+// NO BUTTON RUNS AWAY
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.position = "absolute";
+  noBtn.style.top = Math.random() * 80 + "%";
+  noBtn.style.left = Math.random() * 80 + "%";
+});
 
+// FLOATING HEARTS
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+
+// CONFETTI
 function launchConfetti() {
   for (let i = 0; i < 80; i++) {
-    const c = document.createElement("div");
-    c.style.position = "fixed";
-    c.style.left = Math.random() * 100 + "vw";
-    c.style.top = "-10px";
-    c.style.width = "8px";
-    c.style.height = "8px";
-    c.style.background = `hsl(${Math.random()*360},100%,70%)`;
-    c.style.animation = "fall 3s linear";
-    document.body.appendChild(c);
-    setTimeout(() => c.remove(), 3000);
+    const confetti = document.createElement("div");
+    confetti.className = "heart";
+    confetti.innerHTML = "🎉";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.fontSize = "24px";
+    confetti.style.animationDuration = "3s";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 3000);
   }
 }
 
-// Confetti animation
-const confettiStyle = document.createElement("style");
-confettiStyle.innerHTML = `
-@keyframes fall {
-  to { transform: translateY(100vh) rotate(360deg); }
-}`;
-document.head.appendChild(confettiStyle);
+// COUNTDOWN TIMER (Valentine's Day)
+function startCountdown() {
+  const valentinesDay = new Date(new Date().getFullYear(), 1, 14);
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = valentinesDay - now;
+
+    if (diff <= 0) {
+      countdownEl.innerHTML = "💘 It's Valentine's Day 💘";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+    countdownEl.innerHTML =
+      `⏳ ${days} days ${hours} hours ${minutes} minutes to Valentine's 💕`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+}
+
+// QR CODE
+function generateQR() {
+  const url = window.location.href;
+  qrCodeImg.src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" +
+    encodeURIComponent(url);
+}
