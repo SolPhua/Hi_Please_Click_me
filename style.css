@@ -94,3 +94,23 @@ html, body {
   margin-top: 10px;
   width: 150px;
 }
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 15px; /* space between side GIFs and main card */
+}
+
+.main-result {
+  text-align: center;
+  z-index: 5; /* make sure main content is on top */
+}
+
+.side-gif {
+  width: 80px; /* adjust size as you like */
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+}
