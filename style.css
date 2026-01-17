@@ -42,7 +42,7 @@ html, body {
 
 /* Panda GIFs */
 .panda {
-  width: 2200px;
+  width: 440px;
   margin: 15px auto;
   display: block;
   border-radius: 12px;
@@ -70,7 +70,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 35px;
+  gap: 60px;
   position: relative;
 }
 
@@ -80,8 +80,8 @@ html, body {
 }
 
 .side-gif {
-  width: 180px;
-  max-height: 3000px;
+  width: 360px;
+  max-height: 600px;
   object-fit: cover;
   border-radius: 15px;
   animation: floatSide 3s infinite alternate;
