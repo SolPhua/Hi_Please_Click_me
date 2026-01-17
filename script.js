@@ -20,6 +20,10 @@ yesBtn.addEventListener("click", () => {
     navigator.vibrate([200, 100, 200]);
   }
 
+  // Play music
+  const music = document.getElementById("bgMusic");
+  music.play().catch(e => console.log("Music blocked", e));
+
   launchConfetti();
   startCountdown();
   generateQR();
