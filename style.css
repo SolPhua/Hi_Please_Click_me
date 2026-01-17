@@ -6,7 +6,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .card {
@@ -16,11 +15,6 @@ body {
   width: 320px;
   text-align: center;
   box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  z-index: 2;
-}
-
-.panda {
-  width: 120px;
 }
 
 h1 {
@@ -35,39 +29,9 @@ button {
   font-size: 16px;
   border-radius: 30px;
   cursor: pointer;
-  margin-top: 20px;
-  transition: transform 0.2s;
+  margin: 10px;
 }
 
 button:hover {
   transform: scale(1.05);
-}
-
-/* Floating hearts */
-.hearts span {
-  position: absolute;
-  color: #ff5c8a;
-  font-size: 20px;
-  animation: float 6s linear infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(100vh); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-10vh); opacity: 0; }
-}
-
-#countdown {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #555;
-}
-.hearts {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* 🔥 THIS IS THE FIX */
-  z-index: 1;
 }
