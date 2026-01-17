@@ -74,3 +74,19 @@ button:hover {
   50% { opacity: 1; }
   100% { transform: translateY(-10vh); opacity: 0; }
 }
+#countdown {
+  font-size: 18px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.qr-text {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+#qrCode {
+  margin-top: 10px;
+  width: 150px;
+}
