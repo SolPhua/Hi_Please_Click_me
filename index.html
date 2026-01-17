@@ -7,20 +7,30 @@
 </head>
 <body>
 
-  <!-- Floating hearts container -->
-  <div class="hearts"></div>
+  <!-- Floating hearts -->
+  <div id="hearts"></div>
 
   <!-- Main card -->
-  <div class="card" id="card">
-    <h1>Hey my panda 🐼</h1>
-    <p>I made something just for you</p>
+  <div class="card" id="mainCard">
+    <h1>Will you be my Valentine? 💘</h1>
+    <img src="https://i.imgur.com/6Xb6ZKp.png" class="panda">
+    <div class="buttons">
+      <button id="yesBtn">Yes 💖</button>
+      <button id="noBtn">No 😢</button>
+    </div>
+  </div>
+
+  <!-- Result card -->
+  <div class="card hidden" id="resultCard">
+    <h1>YIPEEE 🎉🐼</h1>
+    <p>You have my heart 💖</p>
 
     <div id="countdown"></div>
 
-    <button id="continueBtn">Continue</button>
+    <p class="qr-text">Scan to keep this forever 📱</p>
+    <img id="qrCode" alt="QR Code">
   </div>
 
-  <!-- JS MUST BE LAST -->
   <script src="script.js"></script>
 </body>
 </html>
