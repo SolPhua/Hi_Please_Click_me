@@ -1,3 +1,8 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;       /* PREVENT SIDE SCROLL */
+}
+
 /* Page layout */
 body {
   margin: 0;
@@ -57,13 +62,13 @@ button:hover {
 }
 
 /* Floating hearts */
-.hearts {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.heart {
+  position: fixed;          /* KEY FIX */
+  bottom: -30px;
+  font-size: 22px;
   pointer-events: none;
+  animation: floatUp 6s linear forwards;
+  opacity: 0.9;
   z-index: 1;
 }
 
