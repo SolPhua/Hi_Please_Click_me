@@ -1,3 +1,4 @@
+// --- Elements
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const mainCard = document.getElementById("mainCard");
@@ -5,10 +6,11 @@ const resultCard = document.getElementById("resultCard");
 const countdownEl = document.getElementById("countdown");
 const qrCodeImg = document.getElementById("qrCode");
 
+// --- Ensure correct page on load
 resultCard.classList.add("hidden");
 mainCard.classList.remove("hidden");
 
-// YES BUTTON
+// --- YES button
 yesBtn.addEventListener("click", () => {
   mainCard.classList.add("hidden");
   resultCard.classList.remove("hidden");
@@ -23,14 +25,14 @@ yesBtn.addEventListener("click", () => {
   generateQR();
 });
 
-// NO BUTTON RUNS AWAY
+// --- NO button moves away
 noBtn.addEventListener("mouseover", () => {
   noBtn.style.position = "absolute";
   noBtn.style.top = Math.random() * 80 + "%";
   noBtn.style.left = Math.random() * 80 + "%";
 });
 
-// FLOATING HEARTS
+// --- Floating hearts
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -42,7 +44,7 @@ setInterval(() => {
   setTimeout(() => heart.remove(), 6000);
 }, 400);
 
-// CONFETTI
+// --- Confetti
 function launchConfetti() {
   for (let i = 0; i < 60; i++) {
     const confetti = document.createElement("div");
@@ -57,7 +59,7 @@ function launchConfetti() {
   }
 }
 
-// COUNTDOWN TIMER (Valentine's Day)
+// --- Countdown timer (Valentine's Day)
 function startCountdown() {
   const valentinesDay = new Date(new Date().getFullYear(), 1, 14);
 
@@ -82,7 +84,7 @@ function startCountdown() {
   setInterval(updateCountdown, 60000);
 }
 
-// QR CODE
+// --- QR code generator
 function generateQR() {
   const url = window.location.href;
   qrCodeImg.src =
