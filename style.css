@@ -77,6 +77,34 @@ html, body {
   100% { transform: translateY(-120vh); opacity: 0; }
 }
 
+/* Result page: side GIFs */
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.main-result {
+  text-align: center;
+  z-index: 5;
+}
+
+.side-gif {
+  width: 80px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  /* Optional floating animation */
+  animation: floatSide 3s infinite alternate;
+}
+
+@keyframes floatSide {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+
 /* Countdown & QR */
 #countdown {
   font-size: 18px;
@@ -93,33 +121,4 @@ html, body {
 #qrCode {
   margin-top: 10px;
   width: 150px;
-}
-
-.result-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  gap: 15px; /* space between side GIFs and main card */
-}
-
-.main-result {
-  text-align: center;
-  z-index: 5; /* make sure main content is on top */
-}
-
-.side-gif {
-  width: 80px; /* adjust size as you like */
-  max-height: 150px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-/* Optional floating animation for side GIFs */
-.side-gif {
-  animation: floatSide 3s infinite alternate;
-}
-
-@keyframes floatSide {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-15px); }
 }
