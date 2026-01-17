@@ -114,3 +114,12 @@ html, body {
   object-fit: cover;
   border-radius: 15px;
 }
+/* Optional floating animation for side GIFs */
+.side-gif {
+  animation: floatSide 3s infinite alternate;
+}
+
+@keyframes floatSide {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
