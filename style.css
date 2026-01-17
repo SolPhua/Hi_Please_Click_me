@@ -70,7 +70,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
   position: relative;
 }
 
@@ -80,8 +80,8 @@ html, body {
 }
 
 .side-gif {
-  width: 80px;
-  max-height: 150px;
+  width: 150px;
+  max-height: 250px;
   object-fit: cover;
   border-radius: 15px;
   animation: floatSide 3s infinite alternate;
