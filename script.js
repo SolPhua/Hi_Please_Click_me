@@ -5,6 +5,9 @@ const resultCard = document.getElementById("resultCard");
 const countdownEl = document.getElementById("countdown");
 const qrCodeImg = document.getElementById("qrCode");
 
+resultCard.classList.add("hidden");
+mainCard.classList.remove("hidden");
+
 // YES BUTTON
 yesBtn.addEventListener("click", () => {
   mainCard.classList.add("hidden");
