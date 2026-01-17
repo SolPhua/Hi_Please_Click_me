@@ -63,7 +63,7 @@ button:hover {
 
 /* Floating hearts */
 .heart {
-  position: fixed;          /* KEY FIX */
+  position: fixed;
   bottom: -30px;
   font-size: 22px;
   pointer-events: none;
