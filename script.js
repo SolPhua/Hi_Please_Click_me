@@ -7,19 +7,16 @@ const countdownEl = document.getElementById("countdown");
 const qrCodeImg = document.getElementById("qrCode");
 const music = document.getElementById("bgMusic");
 
-// --- Ensure correct page on load
-resultCard.classList.add("hidden");
+// --- Initial state
 mainCard.classList.remove("hidden");
+resultCard.classList.add("hidden");
 
 // --- YES button
 yesBtn.addEventListener("click", () => {
   mainCard.classList.add("hidden");
   resultCard.classList.remove("hidden");
 
-  // Mobile vibration
   if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
-
-  // Play music
   music.play().catch(e => console.log("Music blocked", e));
 
   launchConfetti();
@@ -27,7 +24,7 @@ yesBtn.addEventListener("click", () => {
   generateQR();
 });
 
-// --- NO button moves away
+// --- NO button dodge
 noBtn.addEventListener("mouseover", () => {
   noBtn.style.position = "absolute";
   noBtn.style.top = Math.random() * 80 + "%";
@@ -62,29 +59,23 @@ function launchConfetti() {
 // --- Countdown timer
 function startCountdown() {
   const valentinesDay = new Date(new Date().getFullYear(), 1, 14);
-
   function updateCountdown() {
     const now = new Date();
     const diff = valentinesDay - now;
-
     if (diff <= 0) {
       countdownEl.innerHTML = "💘 It's Valentine's Day 💘";
       return;
     }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-
-    countdownEl.innerHTML =
-      `⏳ ${days} days ${hours} hours ${minutes} minutes to Valentine's 💕`;
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const minutes = Math.floor((diff / (1000*60)) % 60);
+    countdownEl.innerHTML = `⏳ ${days} days ${hours} hours ${minutes} minutes to Valentine's 💕`;
   }
-
   updateCountdown();
   setInterval(updateCountdown, 60000);
 }
 
-// --- QR code generator
+// --- QR code
 function generateQR() {
   const url = window.location.href;
   qrCodeImg.src =
