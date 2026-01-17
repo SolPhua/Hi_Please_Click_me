@@ -10,6 +10,10 @@ body {
   overflow: hidden;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Card */
 .card {
   background: white;
