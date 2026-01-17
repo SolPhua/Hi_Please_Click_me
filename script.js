@@ -1,39 +1,43 @@
-// Floating hearts
-const heartsContainer = document.querySelector(".hearts");
+document.addEventListener("DOMContentLoaded", () => {
 
-function createHeart() {
-  const heart = document.createElement("span");
-  heart.innerHTML = "💗";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
-  heartsContainer.appendChild(heart);
+  // Floating hearts
+  const heartsContainer = document.querySelector(".hearts");
 
-  setTimeout(() => heart.remove(), 7000);
-}
+  function createHeart() {
+    const heart = document.createElement("span");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+    heartsContainer.appendChild(heart);
 
-setInterval(createHeart, 400);
-
-// Countdown to Feb 14
-const countdownEl = document.getElementById("countdown");
-const valentinesDay = new Date("February 14, 2026 19:00:00").getTime();
-
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = valentinesDay - now;
-
-  if (diff <= 0) {
-    countdownEl.innerHTML = "It's today 🐼💖";
-    return;
+    setTimeout(() => heart.remove(), 7000);
   }
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const mins = Math.floor((diff / (1000 * 60)) % 60);
+  setInterval(createHeart, 400);
 
-  countdownEl.innerHTML = `${days} days ${hours} hrs ${mins} mins to us 💕`;
-}, 1000);
+  // Countdown
+  const countdownEl = document.getElementById("countdown");
+  const valentinesDay = new Date("February 14, 2026 19:00:00").getTime();
 
-// Valentine question
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = valentinesDay - now;
+
+    if (diff <= 0) {
+      countdownEl.innerHTML = "It's today 🐼💖";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+
+    countdownEl.innerHTML = `${days} days ${hours} hrs ${mins} mins to us 💕`;
+  }, 1000);
+
+});
+
+// Valentine functions (must be OUTSIDE)
 function ask() {
   document.getElementById("card").innerHTML = `
     <h1>Will you be my Valentine? 🐼💘</h1>
@@ -49,7 +53,6 @@ function ask() {
   });
 }
 
-// Confetti + success message
 function yes() {
   launchConfetti();
   document.getElementById("card").innerHTML = `
@@ -58,7 +61,6 @@ function yes() {
   `;
 }
 
-// Simple confetti
 function launchConfetti() {
   for (let i = 0; i < 100; i++) {
     const confetti = document.createElement("div");
@@ -68,4 +70,17 @@ function launchConfetti() {
     confetti.style.width = "8px";
     confetti.style.height = "8px";
     confetti.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
-    confetti.styl
+    confetti.style.animation = "fall 3s linear";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 3000);
+  }
+}
+
+// Confetti animation
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes fall {
+  to { transform: translateY(100vh) rotate(360deg); }
+}`;
+document.head.appendChild(style);
