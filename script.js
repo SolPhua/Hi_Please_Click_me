@@ -5,6 +5,7 @@ const mainCard = document.getElementById("mainCard");
 const resultCard = document.getElementById("resultCard");
 const countdownEl = document.getElementById("countdown");
 const qrCodeImg = document.getElementById("qrCode");
+const music = document.getElementById("bgMusic");
 
 // --- Ensure correct page on load
 resultCard.classList.add("hidden");
@@ -16,12 +17,9 @@ yesBtn.addEventListener("click", () => {
   resultCard.classList.remove("hidden");
 
   // Mobile vibration
-  if (navigator.vibrate) {
-    navigator.vibrate([200, 100, 200]);
-  }
+  if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
 
   // Play music
-  const music = document.getElementById("bgMusic");
   music.play().catch(e => console.log("Music blocked", e));
 
   launchConfetti();
@@ -44,7 +42,6 @@ setInterval(() => {
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.fontSize = Math.random() * 12 + 18 + "px";
   document.body.appendChild(heart);
-
   setTimeout(() => heart.remove(), 6000);
 }, 400);
 
@@ -58,12 +55,11 @@ function launchConfetti() {
     confetti.style.fontSize = Math.random() * 10 + 20 + "px";
     confetti.style.animationDuration = "3s";
     document.body.appendChild(confetti);
-
     setTimeout(() => confetti.remove(), 3000);
   }
 }
 
-// --- Countdown timer (Valentine's Day)
+// --- Countdown timer
 function startCountdown() {
   const valentinesDay = new Date(new Date().getFullYear(), 1, 14);
 
